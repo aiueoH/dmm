@@ -1,0 +1,42 @@
+%nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
+  .container
+    .navbar-header
+      = link_to root_path, class: "navbar-brand" do
+        %strong DMM
+      %button.navbar-toggle{"data-target" => "#DMM-navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only switch guide
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+    #DMM-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.shadow-z-1
+          = link_to '物資清單', items_path
+        %li.shadow-z-1
+          = link_to '分配資料', orders_path
+        %li.shadow-z-1
+          = link_to '接收單位', receivers_path
+
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          - if user_signed_in?
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
+              %span
+                = "#{current_user.name} 管理員"
+                %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to destroy_user_session_path, method: :delete, rel: "nofollow" do
+                  %i.fa.fa-sign-out
+                  登出
+          - else
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
+              %span
+                = "您正使用台灣災難物資管理"
+                %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to new_user_session_path do
+                  %i.fa.fa-sign-in
+                  登入

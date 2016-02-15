@@ -20,14 +20,17 @@
         <td><%= order.receiver_id %></td>
         <td><%= order.item_id %></td>
         <td><%= order.amount %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Show', order %></td>
+          <td><%= link_to 'Edit', edit_order_path(order) %></td>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+<% if user_signed_in? %>
+  <br>
+  <%= link_to 'New Order', new_order_path %>
+<% end %>
