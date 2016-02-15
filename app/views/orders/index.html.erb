@@ -20,14 +20,11 @@
         <tr>
           <td><%= order.id %></td>
           <td><%= link_to order.comment, order %></td>
-          <td><%= order.receiver_id %></td>
-          <td><%= order.item_id %></td>
+          <td><%= receiver_name(order.receiver_id) %></td>
+          <td><%= item_name(order.item_id) %></td>
           <td><%= order.amount %></td>
           <% if user_signed_in? %>
             <td class="text-right">
-              <%= link_to edit_order_path(order), class: "btn btn-sm btn-primary" do %>
-                <i class="glyphicon glyphicon-edit"></i>
-              <% end %>
               <%= link_to order, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
                 <i class="glyphicon glyphicon-trash"></i>
               <% end %>
