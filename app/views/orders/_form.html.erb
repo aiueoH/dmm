@@ -17,11 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :receiver_id %><br>
-    <%= f.number_field :receiver_id %>
+    <!--<%= f.number_field :receiver_id %>-->
+    <%= select_tag 'order[receiver_id]', options_for_select(@receivers.collect{ |u| [u.name + '(聯絡人：' + u.contact + ')', u.id] }) %>
   </div>
   <div class="field">
     <%= f.label :item_id %><br>
-    <%= f.number_field :item_id %>
+    <!--<%= f.number_field :item_id %>-->
+    <%= select_tag 'order[item_id]', options_for_select(@items.collect{ |u| [u.name + '(剩餘：' + u.amount.to_s + ')', u.id] }) %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
