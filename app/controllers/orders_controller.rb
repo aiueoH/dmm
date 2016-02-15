@@ -24,14 +24,26 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
+    # 訂單新增時，檢查庫存是否足夠，並扣除
+    item = Item.find(order_params[:item_id])
+    want = order_params[:amount].to_i
+    if item.amount >= want
+      item.amount -= want
+      item.save
+      @order = Order.new(order_params)
+      respond_to do |format|
+        if @order.save
+          format.html { redirect_to @order, notice: 'Order was successfully created.' }
+          format.json { render :show, status: :created, location: @order }
+        else
+          format.html { render :new }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      @order = Order.new(order_params)
+      respond_to do |format|
+        format.html { render :new, notice: '庫存不足' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -54,6 +66,10 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    # 訂單刪除時，將物品庫存復原
+    item = @order.item
+    item.amount += @order.amount
+    item.save
     @order.destroy
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
