@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# bootstrap
+gem 'bootstrap-sass'
+gem 'rails-i18n'
+
 # Use Font awesome
 gem 'font-awesome-rails'
 # Use devise
