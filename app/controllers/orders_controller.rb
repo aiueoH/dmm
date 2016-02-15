@@ -1,11 +1,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  helper_method :receiver_name, :item_name
 
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.all
+    @items = Item.all
+    @receivers = Receiver.all
   end
 
   # GET /orders/1
@@ -89,5 +92,13 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:comment, :receiver_id, :item_id, :amount)
+    end
+    
+    def receiver_name id
+      return @receivers.find_by(id: id).name
+    end
+    
+    def item_name id
+      return @items.find_by(id: id).name
     end
 end
