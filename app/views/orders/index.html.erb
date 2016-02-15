@@ -1,36 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Orders</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>Receiver</th>
-      <th>Item</th>
-      <th>Amount</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.comment %></td>
-        <td><%= order.receiver_id %></td>
-        <td><%= order.item_id %></td>
-        <td><%= order.amount %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Show', order %></td>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
-          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if user_signed_in? %>
-  <br>
-  <%= link_to 'New Order', new_order_path %>
-<% end %>
+<div class="col-md-8 col-md-offset-2">
+  <p id="notice"><%= notice %></p>
+  
+  <!-- index list -->
+  <table class="table table-hover" >
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>Comment</th>
+          <th>接收單位</th>
+          <th>物資名稱</th>
+          <th>數量</th>
+          <% if user_signed_in? %>
+            <th></th>
+          <% end %>
+        </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= link_to order.comment, order %></td>
+          <td><%= order.receiver_id %></td>
+          <td><%= order.item_id %></td>
+          <td><%= order.amount %></td>
+          <% if user_signed_in? %>
+            <td class="text-right">
+              <%= link_to edit_order_path(order), class: "btn btn-sm btn-primary" do %>
+                <i class="glyphicon glyphicon-edit"></i>
+              <% end %>
+              <%= link_to order, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
+                <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <!-- Create User Button -->
+  <% if user_signed_in? %>
+    <div class="text-center">
+      <%= link_to new_order_path, class: 'btn btn-success' do %><i class="glyphicon glyphicon-plus"></i><% end %>
+    </div>
+  <% end %>
+</div>

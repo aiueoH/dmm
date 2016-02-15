@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
+%nav.navbar.navbar-default{role:"navigation"}
   .container
     .navbar-header
       = link_to root_path, class: "navbar-brand" do
@@ -11,12 +11,12 @@
 
     #DMM-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.shadow-z-1
+        %li
           = link_to '物資清單', items_path
-        %li.shadow-z-1
+        %li
+          = link_to '接收單位', receivers_path          
+        %li
           = link_to '分配資料', orders_path
-        %li.shadow-z-1
-          = link_to '接收單位', receivers_path
 
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
