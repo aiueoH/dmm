@@ -1,32 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Amount</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.amount %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Show', item %></td>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if user_signed_in? %>
-  <br>
-  <%= link_to 'New Item', new_item_path %>
-<% end %>
+<div class="col-md-8 col-md-offset-2">
+  <p id="notice"><%= notice %></p>
+  
+  <!-- index list -->
+  <table class="table table-hover" >
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>物資名稱</th>
+          <th>數量</th>
+          <% if user_signed_in? %>
+            <th></th>
+          <% end %>
+        </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to item.name, item %></td>
+          <td><%= item.amount %></td>
+          <% if user_signed_in? %>
+            <td class="text-right">
+              <%= link_to edit_item_path(item), class: "btn btn-sm btn-primary" do %>
+                <i class="glyphicon glyphicon-edit"></i>
+              <% end %>
+              <%= link_to item, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
+                <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <!-- Create User Button -->
+  <% if user_signed_in? %>
+    <div class="text-center">
+      <%= link_to new_item_path, class: 'btn btn-success' do %><i class="glyphicon glyphicon-plus"></i><% end %>
+    </div>
+  <% end %>
+</div>
