@@ -16,10 +16,12 @@ class ReceiversController < ApplicationController
   # GET /receivers/new
   def new
     @receiver = Receiver.new
+    @submit = "新增"
   end
 
   # GET /receivers/1/edit
   def edit
+    @submit = "更新"
   end
 
   # POST /receivers

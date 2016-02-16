@@ -1,25 +1,35 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for(@item) do |f| %>
+      <% if @item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+    
+          <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    
+      <div class="form-inputs">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 well">
+            <%= f.text_field :name, placeholder: "請輸入物資名稱", class: "form-control" %>
+            <br>
+            <%= f.number_field :amount, placeholder: "物資數量", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 text-center">
+            <%= f.submit @submit, class: "btn btn-primary btn-embossed" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

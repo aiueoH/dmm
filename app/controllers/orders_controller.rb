@@ -21,10 +21,12 @@ class OrdersController < ApplicationController
     @order = Order.new
     @items = Item.all
     @receivers = Receiver.all
+    @submit = "新增"
   end
 
   # GET /orders/1/edit
   def edit
+    @submit = "更新"
   end
 
   # POST /orders

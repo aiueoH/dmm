@@ -16,10 +16,12 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @submit = "新增"
   end
 
   # GET /items/1/edit
   def edit
+    @submit = "更新"
   end
 
   # POST /items
