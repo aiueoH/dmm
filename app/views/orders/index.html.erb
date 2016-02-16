@@ -1,44 +1,45 @@
 <div class="col-md-8 col-md-offset-2">
   <p id="notice"><%= notice %></p>
   
-  <!-- index list -->
-  <table class="table table-hover" >
-    <thead>
-        <tr>
-          <th>#</th>
-          <th>Comment</th>
-          <th>接收單位</th>
-          <th>物資名稱</th>
-          <th>數量</th>
-          <% if user_signed_in? %>
-            <th></th>
-          <% end %>
-        </tr>
-    </thead>
-    <tbody>
-      <% @orders.each do |order| %>
-        <tr>
-          <td><%= order.id %></td>
-          <td><%= link_to order.comment, order %></td>
-          <td><%= receiver_name(order.receiver_id) %></td>
-          <td><%= item_name(order.item_id) %></td>
-          <td><%= order.amount %></td>
-          <% if user_signed_in? %>
-            <td class="text-right">
-              <%= link_to order, method: :delete, class: "btn btn-sm btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
-                <i class="glyphicon glyphicon-trash"></i>
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <hr>
+  <div class="well">
+    <!-- index list -->
+    <table class="table table-hover" >
+      <thead>
+          <tr>
+            <th>#</th>
+            <th>Comment</th>
+            <th>接收單位</th>
+            <th>物資名稱</th>
+            <th>數量</th>
+            <% if user_signed_in? %>
+              <th></th>
+            <% end %>
+          </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= link_to order.comment, order %></td>
+            <td><%= receiver_name(order.receiver_id) %></td>
+            <td><%= item_name(order.item_id) %></td>
+            <td><%= order.amount %></td>
+            <% if user_signed_in? %>
+              <td class="text-right">
+                <%= link_to order, method: :delete, class: "btn btn-sm btn-embossed btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
+                  <i class="glyphicon glyphicon-trash"></i>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <!-- Create User Button -->
   <% if user_signed_in? %>
     <div class="text-center">
-      <%= link_to new_order_path, class: 'btn btn-success' do %><i class="glyphicon glyphicon-plus"></i><% end %>
+      <%= link_to new_order_path, class: 'btn btn-embossed btn-primary btn-new' do %><i class="glyphicon glyphicon-plus"></i><% end %>
     </div>
   <% end %>
 </div>
