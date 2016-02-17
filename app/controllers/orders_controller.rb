@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
       respond_to do |format|
         if @order.save
-          format.html { redirect_to @order, notice: 'Order was successfully created.' }
+          format.html { redirect_to @order, notice: '已將物品順利送出。' }
           format.json { render :show, status: :created, location: @order }
         else
           format.html { render :new }
@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
     else
       @order = Order.new(order_params)
       respond_to do |format|
-        format.html { render :new, notice: '庫存不足' }
+        format.html { render :new, notice: '物品庫存不足' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
     item.save
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: '已刪除該送出記錄，物品數量補回。' }
       format.json { head :no_content }
     end
   end
