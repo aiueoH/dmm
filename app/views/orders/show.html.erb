@@ -1,24 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>接收單位:</strong>
-  <%= @order.receiver.name %>
-</p>
-
-<p>
-  <strong>物品:</strong>
-  <%= @order.item.name %>
-</p>
-
-<p>
-  <strong>數量:</strong>
-  <%= @order.amount %>
-</p>
-
-<p>
-  <strong>備註:</strong>
-  <%= @order.comment %>
-</p>
-
-<%= link_to '修改', edit_order_path(@order) %> |
-<%= link_to '返回', orders_path %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 text-center">
+    <div class="well">
+      <h4><%= @order.receiver.name %></h4>
+      <i class="fa fa-3x fa-arrow-up"></i><br>
+      <span><i class="fa fa-gift"></i> 物資名稱及數量：  </span><strong><%= @order.item.name %> x <%= @order.amount %></strong>
+      <hr>
+      <%= @order.comment %>
+    </div>
+    <%= link_to '返回列表', orders_path, class: "btn btn-embossed btn-inverse" %>
+  </div>
+</div>
