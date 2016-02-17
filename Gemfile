@@ -35,6 +35,12 @@ gem 'devise-i18n'
 gem 'simple_form'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
+# use activeadmin
+gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'awesome_rails_console'
