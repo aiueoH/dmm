@@ -57,10 +57,17 @@ class ReceiversController < ApplicationController
   # DELETE /receivers/1
   # DELETE /receivers/1.json
   def destroy
-    @receiver.destroy
-    respond_to do |format|
-      format.html { redirect_to receivers_url, notice: 'Receiver was successfully destroyed.' }
-      format.json { head :no_content }
+    if @receiver.orders.size != 0
+      respond_to do |format|
+        format.html { redirect_to receivers_url, notice: '無法刪除該單位，此單位已領取過物品，若要刪除須先將領取記錄刪除。' }
+        format.json { head :no_content }
+      end
+    else
+      @receiver.destroy
+      respond_to do |format|
+        format.html { redirect_to receivers_url, notice: 'Receiver was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

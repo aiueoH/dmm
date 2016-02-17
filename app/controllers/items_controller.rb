@@ -57,10 +57,17 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if @item.orders.size != 0
+      respond_to do |format|
+        format.html { redirect_to items_url, notice: '無法移除物品，該物品已有流向記錄，若要刪除請先刪除流向記錄。' }
+        format.json { head :no_content }
+      end
+    else
+      @item.destroy
+      respond_to do |format|
+        format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
