@@ -27,7 +27,7 @@
           %li
             %a= "您正使用台灣災難物資管理"
           %li
-            = button_to new_user_session_path, class: "btn btn-primary navbar-btn" do
+            = button_to new_user_session_path, method: :get, class: "btn btn-primary navbar-btn" do
               %i.fa.fa-sign-in
               登入
           

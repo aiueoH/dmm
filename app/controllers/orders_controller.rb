@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
       respond_to do |format|
         if @order.save
-          format.html { redirect_to @order, notice: 'Order was successfully created.' }
+          format.html { redirect_to @order, notice:  "完成新增一筆紀錄" }
           format.json { render :show, status: :created, location: @order }
         else
           format.html { render :new }
@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: "更新「#{@order.name}」" }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
     item.save
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice:  "刪除一筆紀錄" }
       format.json { head :no_content }
     end
   end
