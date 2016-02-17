@@ -31,7 +31,7 @@ class ReceiversController < ApplicationController
 
     respond_to do |format|
       if @receiver.save
-        format.html { redirect_to @receiver, notice: '為您感到高興，已成功新增單位。' }
+        format.html { redirect_to @receiver, notice:  "新增接收單位「#{@receiver.name}」" }
         format.json { render :show, status: :created, location: @receiver }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ReceiversController < ApplicationController
   def update
     respond_to do |format|
       if @receiver.update(receiver_params)
-        format.html { redirect_to @receiver, notice: '單位資訊修改成功。' }
+        format.html { redirect_to @receiver, notice:  "更新「#{@receiver.name}」資訊" }
         format.json { render :show, status: :ok, location: @receiver }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class ReceiversController < ApplicationController
     else
       @receiver.destroy
       respond_to do |format|
-        format.html { redirect_to receivers_url, notice: '該單位已被刪除。' }
+        format.html { redirect_to receivers_url, notice:  "刪除接收單位「#{@receiver.name}」" }
         format.json { head :no_content }
       end
     end

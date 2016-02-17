@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: "更新「#{@order.name}」" }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
