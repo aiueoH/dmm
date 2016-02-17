@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Comment:</strong>
-  <%= @order.comment %>
+  <strong>接收單位:</strong>
+  <%= @order.receiver.name %>
 </p>
 
 <p>
-  <strong>Receiver:</strong>
-  <%= @order.receiver_id %>
+  <strong>物品:</strong>
+  <%= @order.item.name %>
 </p>
 
 <p>
-  <strong>Item:</strong>
-  <%= @order.item_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
+  <strong>數量:</strong>
   <%= @order.amount %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>備註:</strong>
+  <%= @order.comment %>
+</p>
+
+<%= link_to '修改', edit_order_path(@order) %> |
+<%= link_to '返回', orders_path %>

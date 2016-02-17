@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>物品名稱:</strong>
   <%= @item.name %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>數量:</strong>
   <%= @item.amount %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to '修改', edit_item_path(@item) %> |
+<%= link_to '返回', items_path %>
