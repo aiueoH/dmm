@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>單位名稱:</strong>
   <%= @receiver.name %>
 </p>
 
 <p>
-  <strong>Contact:</strong>
+  <strong>聯絡人:</strong>
   <%= @receiver.contact %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>電話:</strong>
   <%= @receiver.phone %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>備註:</strong>
   <%= @receiver.comment %>
 </p>
 
-<%= link_to 'Edit', edit_receiver_path(@receiver) %> |
-<%= link_to 'Back', receivers_path %>
+<%= link_to '修改', edit_receiver_path(@receiver) %> |
+<%= link_to '返回', receivers_path %>

@@ -7,10 +7,10 @@
       <thead>
           <tr>
             <th>#</th>
-            <th>Comment</th>
             <th>接收單位</th>
             <th>物資名稱</th>
             <th>數量</th>
+            <th>備註</th>
             <% if user_signed_in? %>
               <th></th>
             <% end %>
@@ -20,10 +20,10 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.id %></td>
-            <td><%= link_to order.comment, order %></td>
             <td><%= receiver_name(order.receiver_id) %></td>
             <td><%= item_name(order.item_id) %></td>
             <td><%= order.amount %></td>
+            <td><%= link_to order.comment, order %></td>
             <% if user_signed_in? %>
               <td class="text-right">
                 <%= link_to order, method: :delete, class: "btn btn-sm btn-embossed btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
