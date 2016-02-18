@@ -1,5 +1,5 @@
 <div class="col-md-8 col-md-offset-2">
-  
+  <% if !@orders.empty? %>
   <div class="well">
     <!-- index list -->
     <table class="table table-hover" >
@@ -35,6 +35,9 @@
       </tbody>
     </table>
   </div>
+  <% else %>
+  <div class="well well-empty text-center">目前沒有<span>分配紀錄</span>，新增一筆？</div>
+  <% end %>
   <!-- Create User Button -->
   <% if user_signed_in? %>
     <div class="text-center">
