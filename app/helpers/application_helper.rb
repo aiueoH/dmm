@@ -27,4 +27,19 @@ module ApplicationHelper
     end
     jsReturn.html_safe()
   end
+  
+  # inline input with label
+  def dmm_input _f, _kind ,_label, _attr, _placeholder
+    content_tag :div, class: "input-group" do
+      (content_tag :span, _label, class: "input-group-addon") +
+      if _kind == "text"
+        (_f.text_field _attr, placeholder: _placeholder, class: "form-control text-center")
+      elsif _kind == "number"
+        (_f.number_field _attr, placeholder: _placeholder, class: "form-control text-center")
+      else
+        (_f.text_area _attr, placeholder: _placeholder, class: "form-control text-center")
+      end
+      
+    end
+  end
 end

@@ -29,9 +29,9 @@
               </div>
             </div>
             <br>
-            <%= f.number_field :amount, placeholder: "物資數量", class: "form-control" %>
+            <%= dmm_input(f, "number", "分配數量", :amount, "請輸入欲分配數量" ) %>
             <br>
-            <%= f.text_area :comment, placeholder: "請簡述分配綱要", class: "form-control" %>
+            <%= dmm_input(f, "textarea", "分配備註", :comment, "請簡述分配綱要" ) %>
           </div>
         </div>
       </div>
