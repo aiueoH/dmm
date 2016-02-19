@@ -2,10 +2,9 @@
   <% if !@orders.empty? %>
   <div class="well">
     <!-- index list -->
-    <table class="table table-hover" >
+    <table class="table table-hover table-ezr" >
       <thead>
           <tr>
-            <th>#</th>
             <th>接收單位</th>
             <th>物資名稱</th>
             <th>數量</th>
@@ -18,7 +17,6 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.id %></td>
             <td><%= receiver_name(order.receiver_id) %></td>
             <td><%= item_name(order.item_id) %></td>
             <td><%= order.amount %></td>
