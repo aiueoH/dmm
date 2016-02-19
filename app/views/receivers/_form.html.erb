@@ -16,13 +16,13 @@
       <div class="form-inputs">
         <div class="row">
           <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 well">
-            <%= f.text_field :name, placeholder: "接收單位名稱", class: "form-control" %>
+            <%= dmm_input(f, "text", "單位名稱", :name, "請輸入接收單位名稱" ) %>
             <br>
-            <%= f.text_field :contact, placeholder: "連絡人姓名", class: "form-control" %>
+            <%= dmm_input(f, "text", "連絡人士", :contact, "請輸入連絡人姓名" ) %>
             <br>
-            <%= f.text_field :phone, placeholder: "連絡電話", class: "form-control" %>
+            <%= dmm_input(f, "text", "連絡電話", :phone, "請輸入連絡電話" ) %>
             <br>
-            <%= f.text_area :comment, placeholder: "請簡述該單位", class: "form-control" %>
+            <%= dmm_input(f, "textarea", "單位敘述", :comment, "請簡述該單位相關訊息" ) %>
           </div>
         </div>
       </div>
