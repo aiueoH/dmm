@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     # 訂單新增時，檢查庫存是否足夠，並扣除
     item = Item.find(order_params[:item_id])
     want = order_params[:amount].to_i
-    if item.amount >= want
+    if item != nil && item.amount - item.safety_stock >= want
       item.amount -= want
       item.save
       @order = Order.new(order_params)

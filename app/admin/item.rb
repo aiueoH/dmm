@@ -8,6 +8,7 @@ ActiveAdmin.register Item do
     id_column
     column :name
     column :amount
+    column :safety_stock
     column :created_at
     column :updated_at
     actions
@@ -15,6 +16,7 @@ ActiveAdmin.register Item do
 
   filter :name
   filter :amount
+  filter :safety_stock
   filter :updated_at
   filter :created_at
 
@@ -22,6 +24,7 @@ ActiveAdmin.register Item do
     f.inputs "Item Details" do
       f.input :name
       f.input :amount
+      f.input :safety_stock
     end
     f.actions
   end
