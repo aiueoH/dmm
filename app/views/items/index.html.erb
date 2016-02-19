@@ -2,10 +2,9 @@
   <% if !@items.empty? %>
   <div class="well">
     <!-- index list -->
-    <table class="table table-hover" >
+    <table class="table table-hover table-ezr" >
       <thead>
           <tr>
-            <th>#</th>
             <th>物資名稱</th>
             <th>數量</th>
             <% if user_signed_in? %>
@@ -16,7 +15,6 @@
       <tbody>
         <% @items.each do |item| %>
           <tr>
-            <td><%= item.id %></td>
             <td><%= link_to item.name, item %></td>
             <td><%= item.amount %></td>
             <% if user_signed_in? %>

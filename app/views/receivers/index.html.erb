@@ -2,10 +2,9 @@
   <% if !@receivers.empty? %>
   <div class="well">
     <!-- index list -->
-    <table class="table table-hover" >
+    <table class="table table-hover table-ezr" >
       <thead>
           <tr>
-            <th>#</th>
             <th>接收單位</th>
             <th>聯絡人</th>
             <th>聯絡電話</th>
@@ -18,7 +17,6 @@
       <tbody>
         <% @receivers.each do |receiver| %>
           <tr>
-            <td><%= receiver.id %></td>
             <td><%= link_to receiver.name, receiver %></td>
             <td><%= receiver.contact %></td>
             <td><%= receiver.phone %></td>

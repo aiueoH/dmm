@@ -44,3 +44,21 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+
+@media screen and (max-width: 600px) {
+  table.table-ezr thead { display: none; }
+  table.table-ezr tbody td { 
+    display: block; 
+    padding: .6rem; 
+    text-align: center;
+  }
+  table.table-ezr tbody tr td:first-child { 
+    font-weight: bold;
+    background: #34495E; 
+    color: #fff;
+  }
+  table.table-ezr tbody tr td:first-child a{ 
+    color: #1ABC9C;
+  }
+}
