@@ -4,6 +4,8 @@
       <h3><%= @item.name %></h3>
       <hr>
       <span>數量：  </span><strong><%= @item.amount %></strong>
+      <br>
+      <span>安全數量：  </span><strong><%= @item.safety_stock %></strong>
     </div>
     <%= link_to '返回列表', items_path, class: "btn btn-embossed btn-inverse" %>
   </div>
