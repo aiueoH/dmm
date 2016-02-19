@@ -27,6 +27,7 @@ ActiveAdmin.register_page "Dashboard" do
           table_for Item.order('created_at desc').limit(10) do
             column("物資名稱")  {|item| link_to(item.name, admin_items_path)  }
             column("數量")      {|item| item.amount                           }
+            column("安全數量")  {|item| item.safety_stock                     }
             column("建立時間")  {|item| item.created_at                       }
           end
           strong{ link_to "查看更多", admin_items_path } if Item.count>10

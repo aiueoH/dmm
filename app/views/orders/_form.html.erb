@@ -23,7 +23,9 @@
               </div>
               <div class="col-md-6">
                 <%= f.label "請選擇分配物資" %><br>
-                <%= select_tag 'order[item_id]', options_for_select(@items.collect{ |u| [u.name + '(剩餘：' + u.amount.to_s + ')', u.id] }), class: "form-control select select-primary select-block" %>
+                <%= select_tag 'order[item_id]', 
+                  options_for_select(@items.collect{ |u| [u.name + "(剩餘：#{u.amount}，安全存量：#{u.safety_stock})", u.id] }), 
+                  class: "form-control select select-primary select-block" %>
               </div>
             </div>
             <br>
