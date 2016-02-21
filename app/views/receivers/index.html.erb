@@ -42,7 +42,7 @@
   <!-- Create User Button -->
   <% if user_signed_in? %>
     <div class="text-center">
-      <%= link_to new_receiver_path, class: 'btn btn-embossed btn-primary btn-new' do %><i class="glyphicon glyphicon-plus"></i><% end %>
+      <%= float_add_btn new_receiver_path %>
     </div>
   <% end %>
 </div>

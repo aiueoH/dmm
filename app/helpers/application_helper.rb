@@ -42,4 +42,11 @@ module ApplicationHelper
       
     end
   end
+  
+  # float add button
+  def float_add_btn new_path
+    link_to new_path, class: 'btn btn-embossed btn-primary btn-float' do
+      content_tag :i, "", class: "glyphicon glyphicon-plus"
+    end
+  end
 end
