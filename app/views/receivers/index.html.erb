@@ -39,6 +39,7 @@
   <% else %>
   <div class="well well-empty text-center">目前沒有<span>接收單位</span>，新增一筆？</div>
   <% end %>
+  <div class="badge float-total">共 <%= @receivers.count %> 筆資料</div>
   <!-- Create User Button -->
   <% if user_signed_in? %>
     <%= float_add_btn new_receiver_path %>

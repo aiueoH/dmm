@@ -36,6 +36,7 @@
   <% else %>
   <div class="well well-empty text-center">目前沒有<span>分配紀錄</span>，新增一筆？</div>
   <% end %>
+  <div class="badge float-total">共 <%= @orders.count %> 筆資料</div>
   <!-- Create User Button -->
   <% if user_signed_in? %>
     <%= float_add_btn new_order_path %>
