@@ -37,10 +37,9 @@
   <% else %>
   <div class="well well-empty text-center">目前沒有<span>物資項目</span>，新增一筆？</div>
   <% end %>
+  <div class="badge float-total">共 <%= @items.count %> 筆資料</div>
   <!-- Create User Button -->
   <% if user_signed_in? %>
-    <div class="text-center">
-      <%= float_add_btn new_item_path %>
-    </div>
+    <%= float_add_btn new_item_path %>
   <% end %>
 </div>
