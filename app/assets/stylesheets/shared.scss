@@ -1,3 +1,24 @@
+/*** FOOTER ***/
+html, body{
+  height: 100%;
+}
+.wrap{
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+.footer{
+  height: 60px;
+  width: 100%;
+  background: transparent;
+  margin-top: -60px;
+  clear: both;
+  
+  span{
+    font-size: 13px;
+  }
+}
+
+/*** EMPTY STATE ***/
 .well-empty{
   border: 1px dashed gray;
   padding-bottom: 30px;
@@ -40,7 +61,7 @@
   }
 }
 
-
+/*** ezRtable - Responsive table ***/
 @media screen and (max-width: 600px) {
   table.table-ezr thead { display: none; }
   table.table-ezr tbody td { 
@@ -65,6 +86,7 @@
   }
 }
 
+/*** FLOAT ADD BUTTON ***/
 .btn-float {
   position: fixed;
   bottom: 50px;
