@@ -6,8 +6,8 @@
       <thead>
           <tr>
             <th>物資名稱</th>
-            <th class="th-erz">數量</th>
-            <th class="th-erz">安全量</th>
+            <th class="th-ezr">數量</th>
+            <th class="th-ezr">安全量</th>
             <% if user_signed_in? %>
               <th></th>
             <% end %>
@@ -17,8 +17,8 @@
         <% @items.each do |item| %>
           <tr>
             <td><%= link_to item.name, item %></td>
-            <td class="td-erz"><%= item.amount %></td>
-            <td class="td-erz"><%= item.safety_stock %></td>
+            <td class="td-ezr"><%= item.amount %></td>
+            <td class="td-ezr"><%= item.safety_stock %></td>
             <% if user_signed_in? %>
               <td class="text-right">
                 <%= link_to edit_item_path(item), class: "btn btn-sm btn-embossed btn-inverse" do %>

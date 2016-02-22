@@ -6,9 +6,9 @@
       <thead>
           <tr>
             <th>接收單位</th>
-            <th class="th-erz">聯絡人</th>
-            <th class="th-erz">電話</th>
-            <th class="th-erz">備註</th>
+            <th class="th-ezr">聯絡人</th>
+            <th class="th-ezr">電話</th>
+            <th class="th-ezr">備註</th>
             <% if user_signed_in? %>
               <th></th>
             <% end %>
@@ -18,9 +18,9 @@
         <% @receivers.each do |receiver| %>
           <tr>
             <td><%= link_to receiver.name, receiver %></td>
-            <td class="td-erz"><%= receiver.contact %></td>
-            <td class="td-erz"><%= receiver.phone %></td>
-            <td class="td-erz"><%= receiver.comment %></td>
+            <td class="td-ezr"><%= receiver.contact %></td>
+            <td class="td-ezr"><%= receiver.phone %></td>
+            <td class="td-ezr"><%= receiver.comment %></td>
             <% if user_signed_in? %>
               <td class="text-right">
                 <%= link_to edit_receiver_path(receiver), class: "btn btn-sm btn-embossed btn-inverse" do %>
