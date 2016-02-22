@@ -16,5 +16,6 @@
 //= require bootstrap-sprockets
 //= require flat-ui
 //= require alertify
+//= require ezRtable
 //= require turbolinks
 //= require_tree .
