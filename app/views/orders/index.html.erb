@@ -17,8 +17,8 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= receiver_name(order.receiver_id) %></td>
-            <td class="td-ezr"><%= item_name(order.item_id) %></td>
+            <td><%= order.receiver.name %></td>
+            <td class="td-ezr"><%= order.item.name %></td>
             <td class="td-ezr"><%= order.amount %></td>
             <td class="td-ezr"><%= link_to order.comment, order %></td>
             <% if user_signed_in? %>
