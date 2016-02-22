@@ -5,7 +5,13 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if Rails.env.production?
+      sql = "select * from items order by convert_to(name, 'BIG5');"
+      @items = Item.find_by_sql(sql)
+    else
+      # Because sqlite3 does not support convert_to.
+      @items = Item.all
+    end
   end
 
   # GET /items/1
