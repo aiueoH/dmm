@@ -7,6 +7,32 @@
       <br>
       <span>安全數量：  </span><strong><%= @item.safety_stock %></strong>
     </div>
-    <%= link_to '返回列表', items_path, class: "btn btn-embossed btn-inverse" %>
+    <%= link_to '返回列表', items_path, class: "btn btn-embossed btn-inverse btn-float" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% if @item.orders.empty? %>
+      <div class="well well-empty text-center">目前<span>沒有</span>分配紀錄</div>
+    <% else %>
+      <div class="well">
+        <table class="table table-hover table-ezr" >
+          <thead>
+              <tr>
+                <th>分配對象</th>
+                <th class="th-ezr">數量</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @item.orders.each do |order| %>
+              <tr>
+                <td><%= link_to order.receiver.name, order.receiver %></td>
+                <td class="td-ezr"><%= order.amount %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>
