@@ -6,6 +6,13 @@ class ReceiversController < ApplicationController
   # GET /receivers.json
   def index
     @receivers = Receiver.all
+    if Rails.env.production?
+      sql = "select * from receivers order by convert_to(name, 'BIG5');"
+      @receivers = Receiver.find_by_sql(sql)
+    else
+      # Because sqlite3 does not support convert_to.
+      @receivers = Receiver.all
+    end
   end
 
   # GET /receivers/1
