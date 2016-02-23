@@ -1,0 +1,27 @@
+/*****************************************************/
+/*********** ezRtable - Responsive table *************/
+/** https://github.com/GeorgioWan/ezResponsiveTable **/
+/*****************************************************/
+@media screen and (max-width: 600px) {
+  table.table-ezr thead { display: none; }
+  table.table-ezr tbody td { 
+    display: block; 
+    padding: .6rem; 
+    text-align: center;
+  }
+  table.table-ezr tbody tr td:first-child { 
+    font-weight: bold;
+    background: #34495E; 
+    color: #fff;
+  }
+  table.table-ezr tbody tr td:first-child a{ 
+    color: #1ABC9C;
+  }
+  table.table-ezr tbody tr .td-ezr:before { 
+    content: attr(data-th); 
+    font-weight: bold;
+    width: 6rem;
+    float: left;
+    text-align: left;
+  }
+}
