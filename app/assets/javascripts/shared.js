@@ -9,4 +9,8 @@ function setNavbarFixed(){
 
 $(document).ready(function() {
   setNavbarFixed();
+  
+  if($(".field_with_errors").length){
+    $(".field_with_errors").addClass("has-error");
+  }
 });

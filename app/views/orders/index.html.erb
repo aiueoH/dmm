@@ -5,7 +5,8 @@
     <table class="table table-hover table-ezr" >
       <thead>
           <tr>
-            <th>接收單位</th>
+            <th>分配時間</th>
+            <th class="th-ezr">單位</th>
             <th class="th-ezr">名稱</th>
             <th class="th-ezr">數量</th>
             <th class="th-ezr">備註</th>
@@ -17,10 +18,11 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.receiver.name %></td>
+            <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), order %></td>
+            <td class="td-ezr"><%= order.receiver.name %></td>
             <td class="td-ezr"><%= order.item.name %></td>
             <td class="td-ezr"><%= order.amount %></td>
-            <td class="td-ezr"><%= link_to order.comment, order %></td>
+            <td class="td-ezr"><%= order.comment.empty? ? "無" : order.comment %></td>
             <% if user_signed_in? %>
               <td class="text-right">
                 <%= link_to order, method: :delete, class: "btn btn-sm btn-embossed btn-danger", data: { confirm: '確定要刪除嗎？' } do %>
