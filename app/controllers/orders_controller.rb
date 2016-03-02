@@ -16,8 +16,18 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @items = Item.all
-    @receivers = Receiver.all
+    
+    if Rails.env.production?
+      sql_item = "select * from items order by convert_to(name, 'BIG5');"
+      sql_receivers = "select * from receivers order by convert_to(name, 'BIG5');"
+      @items = Item.find_by_sql(sql_item)
+      @receivers = Receiver.find_by_sql(sql_receivers)
+    else
+      # Because sqlite3 does not support convert_to.
+      @items = Item.all
+      @receivers = Receiver.all
+    end
+  
     @submit = "新增"
   end
 
