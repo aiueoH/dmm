@@ -4,11 +4,11 @@
       <h3><%= @receiver.name %></h3>
       <hr>
       <div class="text-left">
-        <span><i class="fa fa-user"></i> 聯絡人　：  </span><strong><%= @receiver.contact %></strong><br>
-        <span><i class="fa fa-phone"></i> 聯絡電話：  </span><strong><%= @receiver.phone %></strong>
+        <span><i class="fa fa-user"></i> 聯絡人　：  </span><strong><%= @receiver.contact.empty? ? "無" : @receiver.contact %></strong><br>
+        <span><i class="fa fa-phone"></i> 聯絡電話：  </span><strong><%= @receiver.phone.empty? ? "無" : @receiver.phone %></strong>
       </div>
       <hr>
-      <%= @receiver.comment %>
+      <%= @receiver.comment.empty? ? "無" : @receiver.comment %>
     </div>
     <%= link_to '返回列表', receivers_path, class: "btn btn-embossed btn-inverse btn-float" %>
   </div>

@@ -1,22 +1,19 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= form_for(@item) do |f| %>
-      <% if @item.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-    
-          <ul>
-          <% @item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
     
       <div class="form-inputs">
         <div class="row">
           <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 well">
             <%= dmm_input(f, "text", "物資名稱", :name, "請輸入物資名稱(含單位)" ) %>
+            <% if @item.errors.any? %>
+              <% @item.errors.messages[:name].each do |message| %>
+                <div class="has-error">
+                  <i class="fa fa-times-circle"></i>
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
             <br>
             <%= dmm_input(f, "number", "物資數量", :amount, "請輸入物資數量" ) %>
             <br>

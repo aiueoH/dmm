@@ -18,9 +18,9 @@
         <% @receivers.each do |receiver| %>
           <tr>
             <td><%= link_to receiver.name, receiver %></td>
-            <td class="td-ezr"><%= receiver.contact %></td>
-            <td class="td-ezr"><%= receiver.phone %></td>
-            <td class="td-ezr"><%= receiver.comment %></td>
+            <td class="td-ezr"><%= receiver.contact.empty? ? "無" : receiver.contact %></td>
+            <td class="td-ezr"><%= receiver.phone.empty? ? "無" : receiver.phone %></td>
+            <td class="td-ezr"><%= receiver.comment.empty? ? "無" : receiver.comment %></td>
             <% if user_signed_in? %>
               <td class="text-right">
                 <%= link_to edit_receiver_path(receiver), class: "btn btn-sm btn-embossed btn-inverse" do %>

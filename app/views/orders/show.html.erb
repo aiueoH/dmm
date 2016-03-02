@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4 text-center">
     <div class="well">
+      <div><i class="fa fa-clock-o"></i><%= @order.created_at.strftime("%Y-%m-%d %H:%M")%></div>
+      <hr>
       <h4><%= @order.receiver.name %></h4>
       <i class="fa fa-3x fa-arrow-up"></i><br>
       <span><i class="fa fa-gift"></i> 物資名稱及數量：  </span><strong><%= @order.item.name %> x <%= @order.amount %></strong>
       <hr>
-      <%= @order.comment %>
+      <%= @order.comment.empty? ? "無" : @order.comment %>
     </div>
     <%= link_to '返回列表', orders_path, class: "btn btn-embossed btn-inverse" %>
   </div>
