@@ -7,7 +7,7 @@
       <i class="fa fa-3x fa-arrow-up"></i><br>
       <span><i class="fa fa-gift"></i> 物資名稱及數量：  </span><strong><%= @order.item.name %> x <%= @order.amount %></strong>
       <hr>
-      <%= @order.comment %>
+      <%= @order.comment.empty? ? "無" : @order.comment %>
     </div>
     <%= link_to '返回列表', orders_path, class: "btn btn-embossed btn-inverse" %>
   </div>

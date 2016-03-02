@@ -15,11 +15,11 @@
     
       <div class="form-inputs">
         <div class="row">
-          <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 well">
+          <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 well">
             <div class="row">
               <div class="col-md-6">
                 <%= f.label "請選擇連絡人" %><br>
-                <%= select_tag 'order[receiver_id]', options_for_select(@receivers.collect{ |u| [u.name + '(聯絡人：' + u.contact + ')', u.id] }), class: "form-control select select-primary select-block" %>
+                <%= select_tag 'order[receiver_id]', options_for_select(@receivers.collect{ |u| [u.name + '(聯絡人：' + (u.contact.empty? ? "無" : u.contact ) + ')', u.id] }), class: "form-control select select-primary select-block" %>
               </div>
               <div class="col-md-6">
                 <%= f.label "請選擇分配物資" %><br>
